@@ -1,7 +1,7 @@
 'use strict'
 
 const store = require('./../store')
-// res stands for response
+
 const signUpSuccess = function (res) {
   // Resets the form
   $('#sign-up').trigger('reset')
@@ -32,8 +32,7 @@ const signInFailure = function (err) {
 }
 
 const signOutSuccess = function () {
-  // BIG IMPORTANT something
-  // clear out the suer - set the stored user to null
+  // clear out the user - set the stored user to null
   store.user = null
   $('#message').text('Signed out successfully!')
   $('#before-sign-in').show()

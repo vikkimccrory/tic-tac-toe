@@ -1,14 +1,97 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+
+$base-color: black;
 
 body {
-  background-color: black;
-  color: hotpink;
+  color: white;
+  background-image: url("https://i.ibb.co/wNfcR8v/synthwave-background-1.webp");
+  background-position: center;
+  font-family: 'DotGothic16', sans-serif;
+  text-shadow: 2px 2px 0 #0000, 4px 4px 0 #000;
+  text-align: center;
 }
 
-#messaging {
+.game-title {
   color: hotpink;
+  text-align: center;
+  padding: 25px;
+  font-weight: bold;
+}
+
+#before-sign-in {
+  text-align: center;
+  padding: 50px;
+}
+
+#message {
+  color: hotpink;
+  text-align: center;
+  font-family: 'DotGothic16', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: none;
+  }
+
+#sign-out {
+  background-color: black;
+  color: hotpink;
+  border-radius: 15px;
+  padding: 3px 15px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  &:hover {
+    transform: scale(1.05) perspective(1px)
+  }
 }
 
 #after-sign-in {
   display: none;
+}
+
+#new-game-button {
+  background-color: black;
+  color: hotpink;
+  font-size: 30px;
+  font-family: 'DotGothic16', sans-serif;
+  padding: 14px 75px;
+  border-radius: 40px;
+  text-align: center;
+  box-shadow: #FF2D95 0px 0px 50px;
+  margin-top: 20px;
+  bottom: 10px;
+  left: 50%;
+    &:hover {
+      transform: scale(1.05) perspective(1px)
+    }
+}
+
+.row {
+  display: inline-block;
+  text-align: center;
+  background-color: black;
+  margin: 5px 0px;
+}
+
+.cell {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    border-bottom: 3px solid hotpink;
+    background-color: $base-color;
+    &:hover {
+      background-color: lighten($base-color, 10%);
+      transform: scale(1.02) perspective(1px)
+    }
+}
+
+.container {
+  display: block;
+  text-align: center;
 }

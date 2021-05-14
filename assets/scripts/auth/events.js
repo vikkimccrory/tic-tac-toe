@@ -4,6 +4,7 @@ const getFormFields = require('./../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 // Sign up form submit handler
+
 const onSignUp = function () {
   // prevent that default
   event.preventDefault()

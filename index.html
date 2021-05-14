@@ -14,8 +14,8 @@
     <body>
       <!-- Authentication -->
       <h1 class="game-title">TIC TAC TOE</h1>
-      <p id="message"></p>
-      <section id="before-sign-in">
+        <p id="message"></p>
+          <section id="before-sign-in">
               <section>
                 <h3>Sign Up</h3>
                 <form id="sign-up">
@@ -25,7 +25,8 @@
                   <button type="submit">Submit</button>
                 </form>
               </section>
-
+              <br>
+              <br>
               <section>
                 <h3>Sign In</h3>
                 <form id="sign-in">
@@ -37,35 +38,32 @@
             </section>
 
             <section id="after-sign-in">
-              <section>
                   <button id="sign-out">Sign Out</button>
-              </section>
-            </section>
-
-
-
-
-
-
-
-
-
-      <!-- Game -->
-        <section id="game-board">
+        <!-- Game -->
+        <section class="game-board">
         <div class="container">
-          <div data-square-index="0" class="game-square"></div>
-          <div data-square-index="1" class="game-square"></div>
-          <div data-square-index="2" class="game-square"></div>
-          <div data-square-index="3" class="game-square"></div>
-          <div data-square-index="4" class="game-square"></div>
-          <div data-square-index="5" class="game-square"></div>
-          <div data-square-index="6" class="game-square"></div>
-          <div data-square-index="7" class="game-square"></div>
-          <div data-square-index="8" class="game-square"></div>
+          <div class="row">
+            <div data-cell-index="0" class="cell"></div>
+            <div data-cell-index="1" class="cell"></div>
+            <div data-cell-index="2" class="cell"></div>
+          </div>
+
+          <div class="row">
+            <div data-cell-index="3" class="cell"></div>
+            <div data-cell-index="4" class="cell"></div>
+            <div data-cell-index="5" class="cell"></div>
+          </div>
+          <div class="row">
+            <div data-cell-index="6" class="cell"></div>
+            <div data-cell-index="7" class="cell"></div>
+            <div data-cell-index="8" class="cell"></div>
+          </div>
         </div>
-        </section>
-
-
-
-    </body>
+          <h2 class="status"></h2>
+          <div class="text-center">
+          <button id="new-game-button" type="button">New Game?</button>
+        </div>
+      </section>
+    </section>
+  </body>
 </html>
