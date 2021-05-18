@@ -6,11 +6,14 @@ const store = require('./../store')
 // Let the initial message display who's turn it is (starts with playerX, then playerO)
 
 const newGameSuccess = function (res) {
-  // Resets the board
-  $('.game-board').trigger('reset')
+  // Shows game board on click
+  $('.game-board').show()
+  // Displays opening message
   $('#message').text('Let\'s go!')
   store.game = res.game
-  console.log('res.game' + res.game)
+  // Resets game board
+  $('.cell').text(' ')
+  $('.cell').val(' ')
 }
 
 const newGameFailure = function (err) {
@@ -20,6 +23,9 @@ const newGameFailure = function (err) {
 
 const cellClickSuccess = function (res) {
   store.game = res.game
+  if (store.currentPlayer === true) {
+
+  }
   store.currentPlayer = store.currentPlayer === 'O' ? 'X' : 'O'
   if (store.currentPlayer === 'X') {
     $('#player-turn').text('Player X\'s turn!')
@@ -33,9 +39,21 @@ const cellClickFailure = function () {
   console.log('Patch request failed')
 }
 
+const gameResultWon = function () {
+  $('#game-result').text(`Player ${store.currentPlayer} won!`)
+  console.log(store.game)
+}
+
+const gameResultDraw = function () {
+  $('#game-result').text('It\'s a draw!')
+  console.log(store.game)
+}
+
 module.exports = {
   newGameSuccess,
   newGameFailure,
   cellClickSuccess,
-  cellClickFailure
+  cellClickFailure,
+  gameResultWon,
+  gameResultDraw
 }

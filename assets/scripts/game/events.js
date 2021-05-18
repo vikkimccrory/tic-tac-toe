@@ -16,20 +16,10 @@ let gameIsOn = true
 // Set the starting game state to an array of empty strings that each link back to each cell
 let gameState = ['', '', '', '', '', '', '', '', '']
 // Make a function to validate results with an array for each possible winning combination
-
-const winningCombos = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6]
-]
+let gameWon = false
 
 const onStartGame = function (event) {
-  $('.game-board').trigger('gameState')
+  $('.game-board').trigger('reset')
   console.log('in onStartGame')
   event.preventDefault()
   api.newGame(event)
@@ -42,23 +32,46 @@ const onCellClick = function (event) {
   const cell = $(event.target)
   const index = cell.data('cell-index')
   cell.text(store.currentPlayer)
+  // trying to turn off changing between X and O once clicked
+
   api.cellClick(index)
     .then(ui.cellClickSuccess)
     .catch(ui.cellClickFailure)
 }
 
-const onGameResults = function () {
-  let gameWon = false
-  for (let i = 0; i <= 9; i++) {
-    const winningCombo = winningCombos[i]
-    const a = gameState[winningCombo[0]]
-    const b = gameState[winningCombo[1]]
-    const c = gameState[winningCombo[2]]
+const winningCombos = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+]
+
+const onGameResults = function (event) {
+  const cell = $(event.target)
+  const index = cell.data('cell-index')
+
+  for (let i = 0; i < winningCombos[index.length]; i++) {
+    const winningCombo = winningCombos[index]
+    const a = index[winningCombo[0]]
+    const b = index[winningCombo[1]]
+    const c = index[winningCombo[2]]
+
     if (a === '' || b === '' || c === '') {
-      return gameWon
-    } else if (a === b && b === c) {
-      let gameWon = true
+      gameWon = false
+      continue
+    } if (a === b && b === c) {
+      gameWon = true
+      console.log('game is over')
+      break
     }
+  }
+  if (gameWon) {
+    gameIsOn = false
+      .then(ui.gameResultWon)
   }
 }
 module.exports = {
