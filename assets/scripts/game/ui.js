@@ -11,7 +11,7 @@ const newGameSuccess = function (res) {
   store.currentPlayer = 'X'
   // Shows game board on new game button click
   $('.game-board').show()
- // Displays player X's turn message on each new game
+  // Displays player X's turn message on each new game
   $('#player-turn').show().text('Player X\'s turn!')
   store.game = res.game
   // Resets game board and any messages
