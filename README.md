@@ -18,4 +18,4 @@ This application allows the user to play tic tac toe against themself. I designe
 - As a user, I want to be able to sign out.
 
 ### Wireframe
-![Wireframe](https://imgur.com/a/0MxxQnh)
+![wireframe](https://imgur.com/AJRgF4W)
