@@ -1,5 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
 
 
 $base-color: black;
@@ -8,7 +10,7 @@ body {
   color: white;
   background-image: url("https://i.ibb.co/wNfcR8v/synthwave-background-1.webp");
   background-position: center;
-  font-family: 'DotGothic16', sans-serif;
+  font-family: 'Audiowide', cursive;
   text-shadow: 2px 2px 0 #0000, 4px 4px 0 #000;
   text-align: center;
 }
@@ -18,6 +20,7 @@ body {
   text-align: center;
   padding: 25px;
   font-weight: bold;
+  font-size: 50px;
 }
 
 #before-sign-in {
@@ -26,12 +29,13 @@ body {
 }
 
 #message {
-  color: hotpink;
+  color: white;
   text-align: center;
-  font-family: 'DotGothic16', sans-serif;
-  font-size: 20px;
+  font-family: 'Audiowide', cursive;
+  font-size: 40px;
   font-weight: bold;
-  text-shadow: none;
+  text-shadow: 2px 2px 0 #0000, 4px 4px 0 #000;
+
   }
 
 .submit-button {
@@ -63,7 +67,7 @@ body {
   background-color: black;
   color: hotpink;
   font-size: 30px;
-  font-family: 'DotGothic16', sans-serif;
+  font-family: 'Audiowide', cursive;
   padding: 14px 75px;
   border-radius: 40px;
   text-align: center;

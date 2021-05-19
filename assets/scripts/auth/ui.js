@@ -16,14 +16,14 @@ const signUpFailure = function (err) {
 const signInSuccess = function (res) {
   // Resets the form
   $('#sign-in').trigger('reset')
+  $('#message').text('Welcome back :)')
   console.log(store)
   store.user = res.user
   console.log(store)
   console.log('in signInSuccess')
-  // Messaging
-  $('#message').text('Welcome back :)')
   $('#after-sign-in').show()
   $('#before-sign-in').hide()
+  $('.game-board').hide()
 }
 
 const signInFailure = function (err) {
@@ -37,6 +37,7 @@ const signOutSuccess = function () {
   $('#message').text('Signed out successfully!')
   $('#before-sign-in').show()
   $('#after-sign-in').hide()
+  $('#player-turn').hide()
 }
 
 const signOutFailure = function () {

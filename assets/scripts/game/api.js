@@ -31,6 +31,23 @@ const cellClick = function (index) {
   })
 }
 
+// const gameEnd = function (index) {
+//   return $.ajax({
+//     method: 'PATCH',
+//     url: config.apiUrl + '/games/' + store.game._id,
+//     headers: { Authorization: `Bearer ${store.user.token}` },
+//     data: {
+//       game: {
+//         cell: {
+//           index: `${index}`,
+//           value: `${store.currentPlayer}`
+//         },
+//         over: true
+//       }
+//     }
+//   })
+// }
+
 //       game: {
 //         cell: {
 //           index: `${data.gam}`,

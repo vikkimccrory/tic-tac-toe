@@ -4,56 +4,120 @@ const store = require('./../store')
 // Make a winning message
 // Make a draw message
 // Let the initial message display who's turn it is (starts with playerX, then playerO)
+/// /// New Game
+store.gameOver = false
 
 const newGameSuccess = function (res) {
-  // Shows game board on click
+  store.currentPlayer = 'X'
+  // Shows game board on new game button click
   $('.game-board').show()
-  // Displays opening message
-  $('#message').text('Let\'s go!')
+ // Displays player X's turn message on each new game
+  $('#player-turn').show().text('Player X\'s turn!')
   store.game = res.game
-  // Resets game board
+  // Resets game board and any messages
   $('.cell').text(' ')
   $('.cell').val(' ')
+  $('#message').text(' ')
 }
-
 const newGameFailure = function (err) {
   console.log(err)
   $('#message').text('Can\'t start new game yet :(')
 }
+/// /// Cell clicks
 
 const cellClickSuccess = function (res) {
   store.game = res.game
-  if (store.currentPlayer === true) {
-
-  }
+  // Switches between players
   store.currentPlayer = store.currentPlayer === 'O' ? 'X' : 'O'
+  // Displays message for who's turn it is
   if (store.currentPlayer === 'X') {
     $('#player-turn').text('Player X\'s turn!')
   } else if (store.currentPlayer === 'O') {
     $('#player-turn').text('Player O\'s turn!')
   }
-  console.log(res.game)
-}
+  // Win checker
+  if (store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X') {
+    $('#message').text('X Wins!')
+    $('#player-turn').hide()
+    $('.game-board').hide()
+  } else if (store.game.cells[3] === 'X' && store.game.cells[4] === 'X' && store.game.cells[5] === 'X') {
+    $('#message').text('X Wins!')
+    $('#player-turn').hide()
+    $('.game-board').hide()
+  } else if (store.game.cells[6] === 'X' && store.game.cells[7] === 'X' && store.game.cells[8] === 'X') {
+    $('#message').text('X Wins!')
+    $('#player-turn').hide()
+    $('.game-board').hide()
+  } else if (store.game.cells[0] === 'X' && store.game.cells[3] === 'X' && store.game.cells[6] === 'X') {
+    $('#message').text('X Wins!')
+    $('#player-turn').hide()
+    $('.game-board').hide()
+  } else if (store.game.cells[1] === 'X' && store.game.cells[4] === 'X' && store.game.cells[7] === 'X') {
+    $('#message').text('X Wins!')
+    $('#player-turn').hide()
+    $('.game-board').hide()
+  } else if (store.game.cells[2] === 'X' && store.game.cells[5] === 'X' && store.game.cells[8] === 'X') {
+    $('#message').text('X Wins!')
+    $('#player-turn').hide()
+    $('.game-board').hide()
+  } else if (store.game.cells[0] === 'X' && store.game.cells[4] === 'X' && store.game.cells[8] === 'X') {
+    $('#message').text('X Wins!')
+    $('#player-turn').hide()
+    $('.game-board').hide()
+  } else if (store.game.cells[6] === 'X' && store.game.cells[4] === 'X' && store.game.cells[2] === 'O') {
+    $('#message').text('X Wins!')
+    $('#player-turn').hide()
+    $('.game-board').hide()
+  } else if (store.game.cells[0] === 'O' && store.game.cells[1] === 'O' && store.game.cells[2] === 'O') {
+    $('#message').text('O Wins!')
+    $('#player-turn').hide()
+    $('.game-board').hide()
+  } else if (store.game.cells[3] === 'O' && store.game.cells[4] === 'O' && store.game.cells[5] === 'O') {
+    $('#message').text('O Wins!')
+    $('#player-turn').hide()
+    $('.game-board').hide()
+  } else if (store.game.cells[6] === 'O' && store.game.cells[7] === 'O' && store.game.cells[8] === 'O') {
+    $('#message').text('O Wins!')
+    $('#player-turn').hide()
+    $('.game-board').hide()
+  } else if (store.game.cells[0] === 'O' && store.game.cells[3] === 'O' && store.game.cells[6] === 'O') {
+    $('#message').text('O Wins!')
+    $('#player-turn').hide()
+    $('.game-board').hide()
+  } else if (store.game.cells[1] === 'O' && store.game.cells[4] === 'O' && store.game.cells[7] === 'O') {
+    $('#message').text('O Wins!')
+    $('#player-turn').hide()
+    $('.game-board').hide()
+  } else if (store.game.cells[2] === 'O' && store.game.cells[5] === 'O' && store.game.cells[8] === 'O') {
+    $('#message').text('O Wins!')
+    $('#player-turn').hide()
+    $('.game-board').hide()
+  } else if (store.game.cells[0] === 'O' && store.game.cells[4] === 'O' && store.game.cells[8] === 'O') {
+    $('#message').text('O Wins!')
+    $('#player-turn').hide()
+    $('.game-board').hide()
+  } else if (store.game.cells[6] === 'O' && store.game.cells[4] === 'O' && store.game.cells[2] === 'O') {
+    $('#message').text('O Wins!')
+    $('#player-turn').hide()
+    $('.game-board').hide()
 
+    /// Tie checker
+  } else if (store.game.cells[0] !== '' && store.game.cells[1] !== '' && store.game.cells[2] !== '' && store.game.cells[3] !== '' &&
+store.game.cells[4] !== '' && store.game.cells[5] !== '' && store.game.cells[6] !== '' && store.game.cells[7] !== '' &&
+store.game.cells[8] !== '') {
+    $('#message').text('Tie!')
+    $('#player-turn').hide()
+    $('.game-board').hide()
+  }
+}
+/// Cell click failure
 const cellClickFailure = function () {
   console.log('Patch request failed')
-}
-
-const gameResultWon = function () {
-  $('#game-result').text(`Player ${store.currentPlayer} won!`)
-  console.log(store.game)
-}
-
-const gameResultDraw = function () {
-  $('#game-result').text('It\'s a draw!')
-  console.log(store.game)
 }
 
 module.exports = {
   newGameSuccess,
   newGameFailure,
   cellClickSuccess,
-  cellClickFailure,
-  gameResultWon,
-  gameResultDraw
+  cellClickFailure
 }
