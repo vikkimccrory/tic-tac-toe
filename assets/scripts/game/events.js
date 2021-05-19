@@ -9,13 +9,8 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('./../store')
 
-// Variable for current player (X then O and repeats til game end)
 store.currentPlayer = 'X'
-// Make a variable for the display of the game status (document.querySelector('.status'))
 store.gameOver = false
-// Set the starting game state to an array of empty strings that each link back to each cell
-
-// Make a function to validate results with an array for each possible winning combination
 
 const onStartGame = function (event) {
   store.gameOver = false
@@ -33,12 +28,7 @@ const onCellClick = function (event) {
   const cell = $(event.target)
   const index = cell.data('cell-index')
   event.preventDefault()
-  if ($(store.game.cell).text() === '') {
-    cell.html(store.currentPlayer)
-  } else if ($(cell).html !== '') {
-    $('.cell').off()
-    $('#message').text('Cell taken')
-  }
+  cell.html(store.currentPlayer)
   api.cellClick(index)
     .then(ui.cellClickSuccess)
     .catch(ui.cellClickFailure)

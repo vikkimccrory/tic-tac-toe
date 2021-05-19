@@ -3,7 +3,7 @@
 This application allows the user to play tic tac toe against themself. I designed the game with an 80s retrowave theme.
 
 # Deploy link
-- [Tic Tac Toe](https://vikkimccrory.github.io/tic-tac-toe/)
+- [Tic Tac Toe](https://vikkimccrory.github.io/tic-tac-toe/) 
 
 ## Planning
 
@@ -18,4 +18,4 @@ This application allows the user to play tic tac toe against themself. I designe
 - As a user, I want to be able to sign out.
 
 ### Wireframe
-![wireframe](https://imgur.com/AJRgF4W)
+[wireframe](https://imgur.com/MVLUYwn)
