@@ -10,25 +10,23 @@ const ui = require('./ui')
 const store = require('./../store')
 
 store.currentPlayer = 'X'
-store.gameOver = false
+// const gameOver = store.gameOver
 
 const onStartGame = function (event) {
-  store.gameOver = false
-  store.currentPlayer = 'X'
-  $('.game-board').trigger('reset')
-  console.log('in onStartGame')
   event.preventDefault()
+  $('.game-board').trigger('reset')
   api.newGame(event)
     .then(ui.newGameSuccess)
     .catch(ui.newGameFailure)
 }
 
 const onCellClick = function (event) {
-  store.gameOver = false
+  event.preventDefault()
   const cell = $(event.target)
   const index = cell.data('cell-index')
-  event.preventDefault()
-  cell.html(store.currentPlayer)
+  const textValue = event.target.innerText
+  if (textValue) return
+  cell.text(store.currentPlayer)
   api.cellClick(index)
     .then(ui.cellClickSuccess)
     .catch(ui.cellClickFailure)

@@ -23,6 +23,7 @@ const signInSuccess = function (res) {
   console.log('in signInSuccess')
   $('#after-sign-in').show()
   $('#before-sign-in').hide()
+  /// Hides game board until new game button is clicked
   $('.game-board').hide()
 }
 
