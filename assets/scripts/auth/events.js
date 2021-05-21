@@ -3,16 +3,12 @@
 const getFormFields = require('./../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+
 // Sign up form submit handler
 
 const onSignUp = function () {
-  // prevent that default
   event.preventDefault()
-  // This is a submit event
-  console.log(event.target)
-  // Pull user data from form
   const data = getFormFields(event.target)
-  console.log(data)
   // Make an API request
   api.signUp(data)
   // success
@@ -20,15 +16,13 @@ const onSignUp = function () {
   // failure
     .catch(ui.signUpFailure)
 }
+
 // Sign in form submit handler
 const onSignIn = function () {
   // prevent that default
   event.preventDefault()
-  // This is a submit event
-  console.log(event.target)
   // Pull user data from form
   const data = getFormFields(event.target)
-  console.log(data)
   // Make an API request
   api.signIn(data)
   // success

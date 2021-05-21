@@ -8,8 +8,7 @@ const signUpSuccess = function (res) {
   // Messaging
   $('#message').text('Sign Up Successful! Go Sign In :)')
 }
-const signUpFailure = function (err) {
-  console.log(err)
+const signUpFailure = function () {
   $('#message').text('Sign up failed :(')
 }
 
@@ -17,18 +16,14 @@ const signInSuccess = function (res) {
   // Resets the form
   $('#sign-in').trigger('reset')
   $('#message').text('Welcome back :)')
-  console.log(store)
   store.user = res.user
-  console.log(store)
-  console.log('in signInSuccess')
   $('#after-sign-in').show()
   $('#before-sign-in').hide()
   /// Hides game board until new game button is clicked
   $('.game-board').hide()
 }
 
-const signInFailure = function (err) {
-  console.log(err)
+const signInFailure = function () {
   $('#message').text('Sign in failed :(')
 }
 

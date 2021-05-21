@@ -10,7 +10,6 @@ const ui = require('./ui')
 const store = require('./../store')
 
 store.currentPlayer = 'X'
-// const gameOver = store.gameOver
 
 const onStartGame = function (event) {
   event.preventDefault()
